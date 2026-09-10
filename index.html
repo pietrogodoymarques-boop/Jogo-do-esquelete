@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Jornada do Esqueleto na Floresta - Jogo 2D</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="game-wrapper">
+    <!-- Barra Superior: Informações e HUD -->
+    <header class="header-bar">
+        <div class="title-area">
+            <h1>💀 A Jornada do Esqueleto</h1>
+            <span class="sub">Atravesse a floresta, salte os obstáculos e conquiste a Maçã!</span>
+        </div>
+
+        <div class="hud-stats">
+            <div class="hud-item">
+                <span class="hud-label">Fase</span>
+                <span class="hud-value" id="hudPhase">1 / 5</span>
+            </div>
+            <div class="hud-item">
+                <span class="hud-label">Obstáculos</span>
+                <span class="hud-value" id="hudObstacles">0 / 5</span>
+            </div>
+            <div class="hud-item">
+                <span class="hud-label">Tentativas</span>
+                <span class="hud-value" id="hudAttempts">1</span>
+            </div>
+        </div>
+
+        <div class="hud-controls">
+            <button id="btnAudio" class="btn-icon" title="Ativar/Desativar Efeitos">🔊 Som</button>
+            <button id="btnMusic" class="btn-icon" title="Tocar Música Chiptune">🎵 Música</button>
+            <button id="btnRestart" class="btn-icon" title="Reiniciar Fase Atual">↺ Reiniciar</button>
+        </div>
+    </header>
+
+    <!-- Barra de Progresso até a Meta da Fase -->
+    <div class="progress-container" title="Progresso da fase">
+        <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+    <!-- Canvas do Jogo e Overlays -->
+    <div class="canvas-container">
+        <canvas id="gameCanvas"></canvas>
+
+        <!-- Faixa Flutuante de Fase -->
+        <div id="phaseBanner" class="phase-banner hidden">Fase 1 de 5</div>
+
+        <!-- Modal de Vitória Final da Maçã (Fase 5) -->
+        <div id="victoryModal" class="modal-overlay hidden">
+            <div class="modal-content">
+                <div class="modal-apple-icon">🍎</div>
+                <h2>VITÓRIA SUPREMA!</h2>
+                <p>
+                    O esqueleto venceu todos os perigos da floresta misteriosa, saltou por cima de todos os troncos, caixas e barris ao longo das <strong>5 fases</strong> e conquistou a lendária <strong>Maçã Sagrada</strong> como prêmio supremo!
+                </p>
+                <button id="btnPlayAgain" class="btn-primary">Jogar Novamente ★</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rodapé: Instruções de Controles e Botões Virtuais -->
+    <footer class="footer-bar">
+        <div class="controls-guide">
+            <span class="key-badge"><kbd>W</kbd> Pular</span>
+            <span class="key-badge"><kbd>A</kbd> Esquerda</span>
+            <span class="key-badge"><kbd>D</kbd> Direita</span>
+            <span class="key-badge"><kbd>R</kbd> Reiniciar</span>
+        </div>
+
+        <div class="touch-controls">
+            <button class="touch-btn" id="btnLeft">◄ A</button>
+            <button class="touch-btn jump" id="btnJump">▲ W (Pular)</button>
+            <button class="touch-btn" id="btnRight">D ►</button>
+        </div>
+    </footer>
+</div>
+
+<!-- Scripts do Jogo -->
+<script src="js/audio.js"></script>
+<script src="js/sprites.js"></script>
+<script src="js/game.js"></script>
+
+</body>
+</html>
